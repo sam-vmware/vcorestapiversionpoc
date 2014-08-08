@@ -1,0 +1,4 @@
+com.vmware.o11n.sdk.rest.client
+com.vmware.o11n.sdk.rest.client.authentication
+com.vmware.o11n.sdk.rest.client.configuration
+com.vmware.o11n.sdk.rest.client.services

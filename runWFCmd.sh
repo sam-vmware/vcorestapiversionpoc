@@ -1,0 +1,1 @@
+./run.sh -p '/api/workflows?conditions=name=simple-demo' -m 'CHAIN' -o './vcoConfig.groovy' -c './sampleflowchain/step1_WorkFlowLookupResponse.       groovy:./sampleflowchain/step2_WorkFlowStartExecution.groovy:./sampleflowchain/step3_WorkFlowMonitorExecutionStatus.groovy' 2>&1 | tee run.out

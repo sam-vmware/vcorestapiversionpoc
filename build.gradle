@@ -1,0 +1,109 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'application'
+//apply plugin: 'project-report'
+//apply plugin: 'idea'
+
+sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
+
+repositories {
+    mavenCentral()
+//    flatDir { dirs 'lib' }
+}
+
+configurations {
+    //all*.exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.1.5'
+    compile 'org.apache.ivy:ivy:2.3.0'
+    compile 'com.github.groovy-wslite:groovy-wslite:0.8.0'
+    compile 'org.slf4j:slf4j-simple:1.7.5'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+}
+
+sourceSets {
+    main {
+        // Exclude all the resources for now since they will be like
+        // standalone scripts and stuff
+        resources {
+            exclude '**/*'
+            exclude 'main'
+            exclude 'sampleflowchain'
+        }
+    }
+}
+
+/********** Custom Task Start **********/
+
+// Fat Jar
+task depJar(type: Jar) {
+    classifier = 'thirdPartyFat'
+    includeEmptyDirs = false
+    doFirst {
+        println "Building all dependencies jar"
+    }
+    from {
+        [configurations.runtime, configurations.default, configurations.default.allArtifacts.files]*.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    exclude 'com/vmware/**/*'
+    exclude 'groovy*/**/*'
+    exclude 'org/codehaus/**/*'
+    exclude 'META-INF/**/*'
+}
+
+// Useful if need to build/change quick on remote target
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+// All RT Dependencies
+task copyRTToLib(type: Copy) {
+    doFirst {
+        println "Copying runtime dependencies to $buildDir/output/lib"
+    }
+    from configurations.runtime
+    into "$buildDir/output/lib"
+}
+
+task copyResToScripts(type: Copy) {
+    from 'src/main/resources'
+    into "$buildDir/output/lib"
+}
+
+// All Dependencies
+task copyAllToLib(type: Copy) {
+    doFirst {
+        println "Copying all artifacts including project jar to $buildDir/output/lib"
+    }
+    from copyRTToLib
+    from copyResToScripts
+    from configurations.default
+    from configurations.default.allArtifacts.files
+    into "$buildDir/output/lib"
+}
+
+task copyDeploy(type: Copy) {
+    doFirst {
+        println "Copying Deploy Artifacts to $buildDir/output/deploy"
+    }
+    from "$buildDir/libs"
+    from 'src/main/resources'
+    into "$buildDir/output/deploy"
+}
+
+/********** Custom Task End **********/
+
+artifacts {
+    archives sourcesJar
+    archives depJar
+}

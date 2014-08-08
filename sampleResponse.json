@@ -1,0 +1,2945 @@
+
+        REQUEST:  /api/workflows
+        RESPONSE:
+        {
+    "count": 70,
+    "links": [
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080A180808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080A180808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Simple)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020cca0004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a simple XML document for testing purposes."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a simple XML document"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080A180808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080EC80808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080EC80808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Address Book)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020e190009/"
+                },
+                {
+                    "name": "description",
+                    "value": "Tests full address book cycle. Namely:\n- creates a directory\n- creates address book DTD, XML, and CSS\n- appends the stylesheet\n"
+                },
+                {
+                    "name": "name",
+                    "value": "Full address book test"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080EC80808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080D880808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080D880808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Address Book)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020e190009/"
+                },
+                {
+                    "name": "description",
+                    "value": "Appends stylesheet information for the address book example."
+                },
+                {
+                    "name": "name",
+                    "value": "Append address book stylesheet information"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080D880808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080B080808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080B080808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Simple)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020cca0004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Finds an element in an XML file and logs it."
+                },
+                {
+                    "name": "name",
+                    "value": "Find element in document"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080B080808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080E280808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080E280808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Address Book)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020e190009/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a DTD for the address book example"
+                },
+                {
+                    "name": "name",
+                    "value": "Create address book DTD"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080E280808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080C380808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080C380808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Simple)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020cca0004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Modifies an XML file by writing a new XML document in a new file."
+                },
+                {
+                    "name": "name",
+                    "value": "Modify XML document"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080C380808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080E780808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080E780808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Address Book)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020e190009/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates XML for the address book example"
+                },
+                {
+                    "name": "name",
+                    "value": "Create address book XML"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080E780808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080DD80808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "51808080808080808080808080808080DD80808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Samples XML (Address Book)"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15020e190009/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates CSS for the address book example"
+                },
+                {
+                    "name": "name",
+                    "value": "Create address book CSS"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/51808080808080808080808080808080DD80808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/208080808080808080808080808080808180808001304924533492bf8ebee26f5/"
+                },
+                {
+                    "name": "id",
+                    "value": "208080808080808080808080808080808180808001304924533492bf8ebee26f5"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Workflow documentation"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a150223590040/"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "name",
+                    "value": "Get documentation for workflow"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/208080808080808080808080808080808180808001304924533492bf8ebee26f5/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/208080808080808080808080808080808880808001304924533492bf8ebee26f5/"
+                },
+                {
+                    "name": "id",
+                    "value": "208080808080808080808080808080808880808001304924533492bf8ebee26f5"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Workflow documentation"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a150223590040/"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "name",
+                    "value": "Get documentation for workflow category"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/208080808080808080808080808080808880808001304924533492bf8ebee26f5/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/B8808080808080808080808080808080A580808001223281930284530e3e80cba/"
+                },
+                {
+                    "name": "id",
+                    "value": "B8808080808080808080808080808080A580808001223281930284530e3e80cba"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Tasks"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15022aba005c/"
+                },
+                {
+                    "name": "description",
+                    "value": "Schedules a workflow to run at a later time and date, as a task."
+                },
+                {
+                    "name": "name",
+                    "value": "Create task"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/B8808080808080808080808080808080A580808001223281930284530e3e80cba/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/B88080808080808080808080808080803D80808001223281930284530e3e80cba/"
+                },
+                {
+                    "name": "id",
+                    "value": "B88080808080808080808080808080803D80808001223281930284530e3e80cba"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Tasks"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15022aba005c/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a recurrent task. Returns the newly created task.\nPossible recurrenceCycle attribute values:\n- one-time: Task runs once only.\n- every-minutes: Task runs every minute\n- every-hours: Task runs hourly\n- every-days: Task runs daily\n- every-weeks: Task runs weekly\n- every-months: Task runs monthly \n\nPossible recurrencePattern attribute values depend on the recurrenceCycle attribute value:\n- one-time: Ignores the recurrencePattern attribute\n- every-minutes: Seconds into each minute at which the task starts, for example, \"00\" or \"00, 30\" \n- every-hours: Minutes and seconds into each hour at which the task starts, for example, \"00:00\" or \"00:00, 30:00\"\n- every-days: Time at which the task starts each day, for example, \"18:30:00\" or \"12:00:00, 19:30:00\"\n- every-weeks: Day and time at which the task starts each week, for example, \"Mon 00:00:00\" or \"Mon 00:00:00, Wed 18:00:00\"\n- every-months: Date and time at which the task starts each month, for example, \"14 00:00:00\" or \"14 00:00:00, 28 18:00:00\""
+                },
+                {
+                    "name": "name",
+                    "value": "Create recurrent task"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/B88080808080808080808080808080803D80808001223281930284530e3e80cba/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/A18080808080808080808080808080808080808001231146624761b79546544c2/"
+                },
+                {
+                    "name": "id",
+                    "value": "A18080808080808080808080808080808080808001231146624761b79546544c2"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Troubleshooting"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a15023f170099/"
+                },
+                {
+                    "name": "description",
+                    "value": "Generates a ZIP archive of troubleshooting information that contains the following files: \n- Configuration files\n- Server, configuration, wrapper and installation log files\n- Workflow, action, Web view, configuration element, resource element, policy template, policy, authorization element and task information"
+                },
+                {
+                    "name": "name",
+                    "value": "Export logs and application settings"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/A18080808080808080808080808080808080808001231146624761b79546544c2/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/998080808080808080808080808080808080808001180944837309b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "998080808080808080808080808080808080808001180944837309b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Workflows"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a150240f600a4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Starts the provided workflow multiple times, with different parameters. You provide workflow parameters in an array, providing a property list (with one property per workflow input) for each instance of the workflow that starts."
+                },
+                {
+                    "name": "name",
+                    "value": "Start workflows in parallel"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/998080808080808080808080808080808080808001180944837309b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/998080808080808080808080808080808580808001180944837309b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "998080808080808080808080808080808580808001180944837309b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Workflows"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a150240f600a4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Runs a workflow multiple times in a series, one instance after the other. You provide workflow parameters in an array, providing a property list (with one property per workflow input) for each instance of the workflow that starts."
+                },
+                {
+                    "name": "name",
+                    "value": "Start workflows in a series"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/998080808080808080808080808080808580808001180944837309b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/8B8180808080808080808080808080808E808080011809756029349943be4c882/"
+                },
+                {
+                    "name": "id",
+                    "value": "8B8180808080808080808080808080808E808080011809756029349943be4c882"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Locking"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a1502496e00c4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Test workflow that creates 5 locks"
+                },
+                {
+                    "name": "name",
+                    "value": "Locking test (x5)"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/8B8180808080808080808080808080808E808080011809756029349943be4c882/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/8E81808080808080808080808080808080808080011809756029349943be4c882/"
+                },
+                {
+                    "name": "id",
+                    "value": "8E81808080808080808080808080808080808080011809756029349943be4c882"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Locking"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a1502496e00c4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Shows all locks"
+                },
+                {
+                    "name": "name",
+                    "value": "Display all locks"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/8E81808080808080808080808080808080808080011809756029349943be4c882/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/8E81808080808080808080808080808085808080011809756029349943be4c882/"
+                },
+                {
+                    "name": "id",
+                    "value": "8E81808080808080808080808080808085808080011809756029349943be4c882"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Locking"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a1502496e00c4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Releases all locks"
+                },
+                {
+                    "name": "name",
+                    "value": "Release all locks"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/8E81808080808080808080808080808085808080011809756029349943be4c882/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/8A81808080808080808080808080808081808080011809756029349943be4c882/"
+                },
+                {
+                    "name": "id",
+                    "value": "8A81808080808080808080808080808081808080011809756029349943be4c882"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Locking"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813a1501b5013a1502496e00c4/"
+                },
+                {
+                    "name": "description",
+                    "value": "Test workflow that creates a lock"
+                },
+                {
+                    "name": "name",
+                    "value": "Locking test"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/8A81808080808080808080808080808081808080011809756029349943be4c882/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080805B81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080805B81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Disables a computer from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Disable a computer"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080805B81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802981808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080802981808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes one or more users from a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove users from group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802981808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080805681808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080805681808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes a computer from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy a computer"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080805681808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804781808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080804781808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates an Active Directory computer in a group."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a computer in a group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804781808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/83808080808080808080808080808080B580808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "83808080808080808080808080808080B580808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a user in an organizational unit. \nIf SSL connection is disabled, you cannot specify a password. Domain policies must allow users to have empty passwords."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user in an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/83808080808080808080808080808080B580808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/078180808080808080808080808080808480808001270557368849c62c352aa82/"
+                },
+                {
+                    "name": "id",
+                    "value": "078180808080808080808080808080808480808001270557368849c62c352aa82"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a user and sets a password for the user."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user with a password in a group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/078180808080808080808080808080808480808001270557368849c62c352aa82/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/1E8180808080808080808080808080808E80808001270557368849c62c352aa82/"
+                },
+                {
+                    "name": "id",
+                    "value": "1E8180808080808080808080808080808E80808001270557368849c62c352aa82"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a user in an organizational unit and sets a password for the user. The password can be changed at the next login.\nIf SSL connection is disabled, you cannot specify a password. Domain policies must allow users to have empty passwords."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user with a password in an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/1E8180808080808080808080808080808E80808001270557368849c62c352aa82/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080807C80808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080807C80808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds a user group to the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Add a favorite group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080807C80808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080806081808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080806081808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Enables a computer in an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Enable a computer"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080806081808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808B81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080808B81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes a user group from the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove a favorite group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808B81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/33c036d7-1573-48e2-92a1-3c97594ffa07/"
+                },
+                {
+                    "name": "id",
+                    "value": "33c036d7-1573-48e2-92a1-3c97594ffa07"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Organizational Unit"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd9ec0049/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes an organizational unit from an Active Directory instance and all objects within the organizational unit subtree."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy an organizational unit and delete its subtree"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/33c036d7-1573-48e2-92a1-3c97594ffa07/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801A81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080801A81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes a user group from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy a user group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801A81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800181808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080800181808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds one or more computers as members of a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Add computers to group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800181808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/95808080808080808080808080808080F781808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "95808080808080808080808080808080F781808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes a user from a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove a user from a user group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/95808080808080808080808080808080F781808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080809081808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080809081808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes an organizational unit from the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove a favorite organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080809081808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800B81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080800B81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds one or more users as members of a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Add users to group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800B81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802E81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080802E81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a user without specifying a password. The password must be changed at the next login. Domain policies must allow users to have empty passwords."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user in a group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802E81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/838080808080808080808080808080804B80808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "838080808080808080808080808080804B80808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes a user from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy a user"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/838080808080808080808080808080804B80808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808181808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080808181808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds an organizational unit to the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Add a favorite organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808181808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/978080808080808080808080808080809A80808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "978080808080808080808080808080809A80808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a new user group in an existing container (organizational unit)."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user group in an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/978080808080808080808080808080809A80808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801081808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080801081808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates a new user group in an existing container (group)."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a user group in a group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801081808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801F81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080801F81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes one or more computers from a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove computers from group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080801F81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804281808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080804281808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Organizational Unit"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd9ec0049/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes an organizational unit from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804281808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/95808080808080808080808080808080F281808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "95808080808080808080808080808080F281808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds one user as a member of a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Add a user to a user group"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/95808080808080808080808080808080F281808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802481808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080802481808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes one or more user groups from a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove groups from group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080802481808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803881808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080803881808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Enables a user in an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Enable a user"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803881808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803D81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080803D81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Organizational Unit"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd9ec0049/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates an organizational unit in an existing organizational unit."
+                },
+                {
+                    "name": "name",
+                    "value": "Create an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803D81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080807780808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080807780808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds a computer to the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Add a favorite computer"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080807780808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800681808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080800681808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User Group"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffcf49000d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds one or more user groups as members of a user group."
+                },
+                {
+                    "name": "name",
+                    "value": "Add groups to group members"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080800681808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808681808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080808681808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Favorites Management"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd6a80039/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes a computer from the list of favorites."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove a favorite computer"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080808681808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804C81808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080804C81808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Creates an Active Directory computer in an organizational unit."
+                },
+                {
+                    "name": "name",
+                    "value": "Create a computer in an organizational unit"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080804C81808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/c2afdc7d-55d7-4dec-9747-fefba83c164a/"
+                },
+                {
+                    "name": "id",
+                    "value": "c2afdc7d-55d7-4dec-9747-fefba83c164a"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Computer"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffc8970004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Deletes a computer from an Active Directory instance and all objects within the computer subtree."
+                },
+                {
+                    "name": "name",
+                    "value": "Destroy a computer and delete its subtree"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/c2afdc7d-55d7-4dec-9747-fefba83c164a/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803381808001175609873343b6bbd2e3eea/"
+                },
+                {
+                    "name": "id",
+                    "value": "958080808080808080808080808080803381808001175609873343b6bbd2e3eea"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Disables a user from an Active Directory instance."
+                },
+                {
+                    "name": "name",
+                    "value": "Disable a user"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/958080808080808080808080808080803381808001175609873343b6bbd2e3eea/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/1E818080808080808080808080808080B180808001270557368849c62c352aa82/"
+                },
+                {
+                    "name": "id",
+                    "value": "1E818080808080808080808080808080B180808001270557368849c62c352aa82"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "User"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e13ffd3360026/"
+                },
+                {
+                    "name": "description",
+                    "value": "Changes the password of a user. SSL connection is required and the password must meet the Active Directory restrictions."
+                },
+                {
+                    "name": "name",
+                    "value": "Change a user password"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/1E818080808080808080808080808080B180808001270557368849c62c352aa82/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/b8922b15-3a18-411d-b010-1d3bfc067cf6/"
+                },
+                {
+                    "name": "id",
+                    "value": "b8922b15-3a18-411d-b010-1d3bfc067cf6"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "AD"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e1417242c00c4/"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "name",
+                    "value": "vCAC Add Machine to AD"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/b8922b15-3a18-411d-b010-1d3bfc067cf6/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/8387da9f-72f0-4762-9834-b5a7b9a25d01/"
+                },
+                {
+                    "name": "id",
+                    "value": "8387da9f-72f0-4762-9834-b5a7b9a25d01"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "AD"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813e13ff83013e1417242c00c4/"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "name",
+                    "value": "vCAC Remove Machine from AD"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/8387da9f-72f0-4762-9834-b5a7b9a25d01/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/cabb6915-77f1-48ce-829a-e63d8b13f928/"
+                },
+                {
+                    "name": "id",
+                    "value": "cabb6915-77f1-48ce-829a-e63d8b13f928"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "VMware-bootcamp"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f64316c013f7db464420004/"
+                },
+                {
+                    "name": "description",
+                    "value": ""
+                },
+                {
+                    "name": "name",
+                    "value": "simple-demo"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/cabb6915-77f1-48ce-829a-e63d8b13f928/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/428080808080808080808080808080803F80808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "428080808080808080808080808080803F80808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Changes a key pair pass-phrase"
+                },
+                {
+                    "name": "name",
+                    "value": "Change key pair passphrase"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/428080808080808080808080808080803F80808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080C38080800120523434428525559a3425f/"
+                },
+                {
+                    "name": "id",
+                    "value": "90808080808080808080808080808080C38080800120523434428525559a3425f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Register the vCO public key (must be generated before) to a target host.\n"
+                },
+                {
+                    "name": "name",
+                    "value": "Register vCO public key on host"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080C38080800120523434428525559a3425f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080C88080800120523434428525559a3425f/"
+                },
+                {
+                    "name": "id",
+                    "value": "90808080808080808080808080808080C88080800120523434428525559a3425f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Copies a file from a host to the vCO server using SCP get command over SFTP."
+                },
+                {
+                    "name": "name",
+                    "value": "SCP get command"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080C88080800120523434428525559a3425f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/42808080808080808080808080808080CE80808001175587494510271f02ffa1f/"
+                },
+                {
+                    "name": "id",
+                    "value": "42808080808080808080808080808080CE80808001175587494510271f02ffa1f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Generate key pair to connect to an SSH host without a password"
+                },
+                {
+                    "name": "name",
+                    "value": "Generate key pair"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/42808080808080808080808080808080CE80808001175587494510271f02ffa1f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080D28080800120523434428525559a3425f/"
+                },
+                {
+                    "name": "id",
+                    "value": "90808080808080808080808080808080D28080800120523434428525559a3425f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Runs an SSH command."
+                },
+                {
+                    "name": "name",
+                    "value": "Run SSH command"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080D28080800120523434428525559a3425f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080CD8080800120523434428525559a3425f/"
+                },
+                {
+                    "name": "id",
+                    "value": "90808080808080808080808080808080CD8080800120523434428525559a3425f"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SSH"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899dc0860004/"
+                },
+                {
+                    "name": "description",
+                    "value": "Copies a file from the vCO server to a target host using SCP put command over SFTP."
+                },
+                {
+                    "name": "name",
+                    "value": "SCP put command"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/90808080808080808080808080808080CD8080800120523434428525559a3425f/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/83808080808080808080808080808080B58080800129726455395757fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "83808080808080808080808080808080B58080800129726455395757fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Removes a SOAP host from the plug-in's inventory. CAUTION! When you remove a host from the inventory, all workflows generated from it will stop working."
+                },
+                {
+                    "name": "name",
+                    "value": "Remove a SOAP host"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/83808080808080808080808080808080B58080800129726455395757fdafc0fce/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/89808080808080808080808080808080A8808080013049260427240aee8dc5c71/"
+                },
+                {
+                    "name": "id",
+                    "value": "89808080808080808080808080808080A8808080013049260427240aee8dc5c71"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Refreshes the list of SOAP hosts in the plug-in's inventory. You should invoke it after importing a package that updates the SOAP plug-in configuration."
+                },
+                {
+                    "name": "name",
+                    "value": "Reload plug-in configuration"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/89808080808080808080808080808080A8808080013049260427240aee8dc5c71/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/2A828080808080808080808080808080818080800126658240472157fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "2A828080808080808080808080808080818080800126658240472157fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Adds a SOAP host to the plug-in's inventory."
+                },
+                {
+                    "name": "name",
+                    "value": "Add a SOAP host"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/2A828080808080808080808080808080818080800126658240472157fdafc0fce/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/FD808080808080808080808080808080A6808080013220404425363c0250095dc/"
+                },
+                {
+                    "name": "id",
+                    "value": "FD808080808080808080808080808080A6808080013220404425363c0250095dc"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Updates a SOAP host with a preferred endpoint address. The new endpoint address will be used when sending and receiving SOAP messages instead of the endpoint addresses defined within the WSDL."
+                },
+                {
+                    "name": "name",
+                    "value": "Update a SOAP host with an endpoint URL"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/FD808080808080808080808080808080A6808080013220404425363c0250095dc/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/838080808080808080808080808080809F8080800129726455395757fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "838080808080808080808080808080809F8080800129726455395757fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Updates the specified SOAP host from the plug-in's inventory."
+                },
+                {
+                    "name": "name",
+                    "value": "Update a SOAP host"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/838080808080808080808080808080809F8080800129726455395757fdafc0fce/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/65808080808080808080808080808080088080800129726455395757fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "65808080808080808080808080808080088080800129726455395757fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "Configuration"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddf28002e/"
+                },
+                {
+                    "name": "description",
+                    "value": "Verifies a host URL and, if required, shows a user interaction message for SSL certificates user approval."
+                },
+                {
+                    "name": "name",
+                    "value": "Manage SSL certificates"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/65808080808080808080808080808080088080800129726455395757fdafc0fce/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/D4808080808080808080808080808080808080800129726455395757fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "D4808080808080808080808080808080808080800129726455395757fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SOAP"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddef3002d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Generates a new workflow from a SOAP operation."
+                },
+                {
+                    "name": "name",
+                    "value": "Generate a new workflow from a SOAP operation"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/D4808080808080808080808080808080808080800129726455395757fdafc0fce/"
+        },
+        {
+            "rel": "down",
+            "attributes": [
+                {
+                    "name": "itemHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/workflows/E7808080808080808080808080808080A88080800129726455395757fdafc0fce/"
+                },
+                {
+                    "name": "id",
+                    "value": "E7808080808080808080808080808080A88080800129726455395757fdafc0fce"
+                },
+                {
+                    "name": "categoryName",
+                    "value": "SOAP"
+                },
+                {
+                    "name": "canExecute",
+                    "value": "true"
+                },
+                {
+                    "name": "categoryHref",
+                    "value": "https://vco-l-01a.corp.local:8281/api/catalog/System/WorkflowCategory/ff8080813f899d6c013f899ddef3002d/"
+                },
+                {
+                    "name": "description",
+                    "value": "Invokes a SOAP operation."
+                },
+                {
+                    "name": "name",
+                    "value": "Invoke a SOAP operation"
+                },
+                {
+                    "name": "type",
+                    "value": "Workflow"
+                },
+                {
+                    "name": "canEdit",
+                    "value": "true"
+                }
+            ],
+            "href": "https://vco-l-01a.corp.local:8281/api/workflows/E7808080808080808080808080808080A88080800129726455395757fdafc0fce/"
+        }
+    ]
+}
+    

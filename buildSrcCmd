@@ -1,0 +1,1 @@
+gradle clean build copyDeploy; rm build/output/deploy/VCOClient2.jar build/output/deploy/VCOClient2-thirdPartyFat.jar

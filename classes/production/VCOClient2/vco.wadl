@@ -1,0 +1,2922 @@
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.24"/>
+    <wadl:grammars>
+        <wadl:include href="vco.xsd"/>
+    </wadl:grammars>
+    <wadl:resources base="http://localhost:8080/vco">
+        <wadl:resource path="/">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all service descriptions.
+
+Lists the available top-level service entry points.]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/about">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving server build properties.]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/actions">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all actions.
+<p>To retrieve the list of all actions, make an HTTP GET request at the actions list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all actions.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all actions.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:actions"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing an action.
+
+<p>Imports an action in a given category. The action binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/actions/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.action");
+parts.put("file", Arrays.asList(r));
+parts.put("categoryName", "com.vmware.basic");
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="categoryName" style="query">
+                        <wadl:doc>
+                            <![CDATA[Target category name where to import the action]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="overwrite" style="query">
+                        <wadl:doc>
+                            <![CDATA[flag indicating whether an action should be overwritten if a version conflict occurs (imported version is smaller than server version)]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="file" style="query">
+                        <wadl:doc>
+                            <![CDATA[Binary content of the Action]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/actions">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all actions.
+<p>To retrieve the list of all actions, make an HTTP GET request at the actions list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all actions.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all actions.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:actions"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/actions">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all actions.
+<p>To retrieve the list of all actions, make an HTTP GET request at the actions list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all actions.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all actions.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all catalog entry points.
+
+<p>Each vCO plug-in exposes its own catalog entry point that is accessible at /catalog/{pluginname}<br>
+The vCO server exposes a separate catalog entry point that is accessible at /catalog/System</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the response body contains a list of the available entry points.</p>]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a single object of an inventory item that
+contains links to catalog namespaces as child elements.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/categories">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Endpoint for retrieving all categories.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/categories</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of categories.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="categoryType" style="query">
+                        <wadl:doc>
+                            <![CDATA[If provided, the returned list is filtered by the provided categoryType.]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="isRoot" style="query">
+                        <wadl:doc>
+                            <![CDATA[If set to true, the returned list should contain only root categories.]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all categories.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Endpoint for adding categories in root.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/categories/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the category details]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The category context object containing the category type, name and description]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the newly created category.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/configurations">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all configurations.
+<p>To retrieve the list of all configurations, make an HTTP GET request at the configuration list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all configurations.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all configurations.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:configurations"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing configuration.
+
+<p>Imports configuration in a given category. The configuration binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/configurations/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.vsoconf");
+parts.put("file", Arrays.asList(r));
+parts.put("categoryId", "828080808080808080808080808080807F818080013217004819830adebdb10ea");
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="categoryId" style="query">
+                        <wadl:doc>
+                            <![CDATA[Target category name where to import the configuration]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="file" style="query">
+                        <wadl:doc>
+                            <![CDATA[Binary content of the Action]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/configurations">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all configurations.
+<p>To retrieve the list of all configurations, make an HTTP GET request at the configuration list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all configurations.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all configurations.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:configurations"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/configurations">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all configurations.
+<p>To retrieve the list of all configurations, make an HTTP GET request at the configuration list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all configurations.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all configurations.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all supported content types.
+
+<p>Returns links to entity type that can be exported, imported, or deleted from the vCO database content.</p>
+<p>Currently, only packages, workflows, and actions are supported. Other vCO objects, for example resources,
+can be imported or exported by wrapping them inside a package.</p>]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/packages">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all deployed packages.
+
+<p>Returns a list of all deployed packages.</p>]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing/uploading a package.
+
+<p>Imports a package. The package binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/packages/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.package");
+parts.put("file", Arrays.asList(r));
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="file" style="query">
+                        <wadl:doc>
+                            <![CDATA[The package element]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="overwrite" style="query">
+                        <wadl:doc>
+                            <![CDATA[A flag indicating whether the already existing elements should be overwritten. If set to false, the service will return an error in case there's an element with an older version than the server version. If set to true, all elements will be imported regardless of any version conflicts. Default value is false.]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/resources">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all resources.
+<p>To retrieve the list of all resources, make an HTTP GET request at the resource list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all resources.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all resources.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:resources"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing resource.
+
+<p>Imports a resource in a given category. The resource binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/resources/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.vsoconf");
+parts.put("file", Arrays.asList(r));
+parts.put("categoryId", "828080808080808080808080808080807F818080013217004819830adebdb10ea");
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="categoryId" style="query">
+                        <wadl:doc>
+                            <![CDATA[Target category ID where to import the resource]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="file" style="query">
+                        <wadl:doc>
+                            <![CDATA[Binary content of the resource]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/resources">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all resources.
+<p>To retrieve the list of all resources, make an HTTP GET request at the resource list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all resources.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all resources.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:resources"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/resources">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all resources.
+<p>To retrieve the list of all resources, make an HTTP GET request at the resource list URL.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all resources.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all resources.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/schema">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving REST XSD schema file.
+
+The XSD schema file defines the elements and types used by the REST service. You can use it
+to generate stub classes (in Java or other programming language).]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/tasks">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Endpoint for retrieving all tasks.
+<p>To retrieve the list of scheduled tasks, make an HTTP GET request at the task's list URL.
+The list contains all tasks filtered by current user's rights and in any state(<span class="apiparam">running, finished, failed</span>)
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/tasks</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of scheduled tasks.]]>
+                </wadl:doc>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all scheduled tasks.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Endpoint for scheduling a new task.
+<p>Use this endpoint to schedule a new task.</p>
+To schedule a new task, make an HTTP POST request at the task's URL.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/tasks/</pre>
+If the request is successful, the API responds with an HTTP <span class="apiparam">202 Accepted</span> status code and <span class="apiparam">Location</span>
+of the newly scheduled task.
+<p>Input parameter values are validated. If there are any validation errors an HTTP <span class="apiparam">400 Bad Request</span> status code appears.
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The task data with name, schedule start date, recurrence pattern, workflow to schedule]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/users">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for getting information about the current solution user.
+
+<p>Returns the current solution user and whether the user has admin rights.</p>]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/versions">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all supported API versions.
+
+Currently, there is only one version.]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows">
+            <wadl:method name="GET">
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing/uploading a workflow.
+
+<p>Imports a workflow in a given category. The workflow binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/workflows/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.workflow");
+parts.put("file", Arrays.asList(r));
+parts.put("categoryId", "");
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="categoryId" style="query"/>
+                    <wadl:param name="overwrite" style="query">
+                        <wadl:doc>
+                            <![CDATA[flag indicating whether a workflow should be overwritten if a version conflict occurs (imported version is smaller than server version)]]>
+                        </wadl:doc>
+                    </wadl:param>
+                    <wadl:param name="file" style="query">
+                        <wadl:doc>
+                            <![CDATA[binary content of the workflow]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/{topic}">
+            <wadl:param name="topic" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for subscribing to a notification topic.
+
+<p>The client applications can subscribe to a notification channel by making GET request to the
+notification channel URL. Unlike normal GET requests that immediately return response body, this
+subscription request suspends the processing of the response and keeps the communication channel
+open. As long the channel is open, other clients can push notification messages by broadcasting/publishing
+on the same topic.</p>
+
+The subscription channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>
+
+<p>This style of communication where the request is initiated by the publisher/server is known
+as 'server push', in contrast with the more common 'pull' style where the request is initiated
+by the receivers/clients.</p>
+
+<p>Another widely used term is publish/subscribe model.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="*/*"/>
+                    <wadl:representation mediaType="application/xml"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for broadcasting a message to a notification channel.
+
+<p>Sends a message to a notification channel. All subscribers of this channel will receive this message.</p>
+<p>The first line in the response body contains a number, which is equal to the size of the broadcasted message.
+The client should read the corresponding number of characgters from the channel.</p>
+
+<p>Note that longer messages may arrive splitted in several chunks, so the clients may need to
+perform several read operations.</p>
+
+The notification channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="*/*"/>
+                    <wadl:representation mediaType="application/xml"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/{topic}">
+            <wadl:param name="topic" style="template"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for subscribing to a notification topic.
+
+<p>The client applications can subscribe to a notification channel by making GET request to the
+notification channel URL. Unlike normal GET requests that immediately return response body, this
+subscription request suspends the processing of the response and keeps the communication channel
+open. As long the channel is open, other clients can push notification messages by broadcasting/publishing
+on the same topic.</p>
+
+The subscription channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>
+
+<p>This style of communication where the request is initiated by the publisher/server is known
+as 'server push', in contrast with the more common 'pull' style where the request is initiated
+by the receivers/clients.</p>
+
+<p>Another widely used term is publish/subscribe model.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="application/xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/{topic}">
+            <wadl:param name="topic" style="template"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for subscribing to a notification topic.
+
+<p>The client applications can subscribe to a notification channel by making GET request to the
+notification channel URL. Unlike normal GET requests that immediately return response body, this
+subscription request suspends the processing of the response and keeps the communication channel
+open. As long the channel is open, other clients can push notification messages by broadcasting/publishing
+on the same topic.</p>
+
+The subscription channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>
+
+<p>This style of communication where the request is initiated by the publisher/server is known
+as 'server push', in contrast with the more common 'pull' style where the request is initiated
+by the receivers/clients.</p>
+
+<p>Another widely used term is publish/subscribe model.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/{topic}">
+            <wadl:param name="topic" style="template"/>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for broadcasting a message to a notification channel.
+
+<p>Sends a message to a notification channel. All subscribers of this channel will receive this message.</p>
+<p>The first line in the response body contains a number, which is equal to the size of the broadcasted message.
+The client should read the corresponding number of characgters from the channel.</p>
+
+<p>Note that longer messages may arrive splitted in several chunks, so the clients may need to
+perform several read operations.</p>
+
+The notification channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="application/xml"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/{topic}">
+            <wadl:param name="topic" style="template"/>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for broadcasting a message to a notification channel.
+
+<p>Sends a message to a notification channel. All subscribers of this channel will receive this message.</p>
+<p>The first line in the response body contains a number, which is equal to the size of the broadcasted message.
+The client should read the corresponding number of characgters from the channel.</p>
+
+<p>Note that longer messages may arrive splitted in several chunks, so the clients may need to
+perform several read operations.</p>
+
+The notification channel URL is in the following format:
+<pre>http(s)://&lt;host&gt;:&lt;port&gt;/api/notifications/<span class="apiparam">{channelName}</span>/</pre>
+In place of <span class="apiparam">channelName</span>, use arbitrary string value, known to all
+subscribers and broadcasters that want to communicate on this channel.<br><br>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/actions/{actionId}">
+            <wadl:param name="actionId" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the action ID as a path variable.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{actionId}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">actionId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:action"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting an action.
+
+<p>Exports an action by its ID. If the request is successful, the action binary content is
+available as an attachment with MIME type application/zip (that is, a normal ZIP file) with a default
+file name {actionname}.action</p>
+<p>It is up to the client application to properly fetch and process this attachment, i.e. by saving it
+to the local file system.</p>
+<p>The exported action has the same internal format as the actions exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting an action.
+
+<p>Deletes an action with a given ID.</p>
+<p>If the action is referenced by some workflows, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/actions/{actionId}">
+            <wadl:param name="actionId" style="template"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the action ID as a path variable.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{actionId}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">actionId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:action"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/actions/{actionId}">
+            <wadl:param name="actionId" style="template"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the action ID as a path variable.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{actionId}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">actionId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}">
+            <wadl:param name="namespace" style="path">
+                <wadl:doc>
+                    <![CDATA[doc for namespace]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving the root elements in a namespace.
+
+<p>All vCO plug-ins that have an inventory, usually provide a single root element.
+The vCO server does not have a single root. Instead, for the System namespace, the vCO REST API returns
+a list that contains links to all system types (workflows, tasks, etc.)</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the response body contains the root elements.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="keys" style="query">
+                        <wadl:doc>
+                            <![CDATA[doc for keys]]>
+                        </wadl:doc>
+                    </wadl:param>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/categories/{id}">
+            <wadl:param name="id" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Endpoint for retrieving details for a category.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/categories/A4808080808080808080808080808080E680808001323264876359ce882292c2a/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the category details.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all categories.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Endpoint for adding child categories.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/categories/8a978cf2368796f5013687ea950b0015</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the category details]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The category context object containing the category type, name and description]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the newly created category.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/configurations/{id}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the configuration to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a configuration.
+The returned definition contains base data for the configuration.
+<p>To retrieve the definition of a configuration, make an HTTP GET request at the URL of the configuration.
+Pass the configuration ID as a path variable.
+</p>
+The URL of the configuration is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/<span class="apiparam">{id}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested configuration.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Configuration's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:configuration"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting a configuration.
+
+<p>Exports a configuration by its ID. If the request is successful, the configuration binary content is
+available in the body of the response message.</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example, by saving it
+to the local file system.</p>
+<p>The exported configuration has the same internal format as the configurations exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a configuration.
+
+<p>Deletes a configuration with a given ID.</p>
+<p>If the configuration is referenced by some workflow, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/configurations/{id}">
+            <wadl:param name="id" style="template">
+                <wadl:doc>
+                    <![CDATA[The ID of the configuration to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a configuration.
+The returned definition contains base data for the configuration.
+<p>To retrieve the definition of a configuration, make an HTTP GET request at the URL of the configuration.
+Pass the configuration ID as a path variable.
+</p>
+The URL of the configuration is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/<span class="apiparam">{id}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested configuration.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Configuration's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:configuration"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/configurations/{id}">
+            <wadl:param name="id" style="template">
+                <wadl:doc>
+                    <![CDATA[The ID of the configuration to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a configuration.
+The returned definition contains base data for the configuration.
+<p>To retrieve the definition of a configuration, make an HTTP GET request at the URL of the configuration.
+Pass the configuration ID as a path variable.
+</p>
+The URL of the configuration is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/configurations/<span class="apiparam">{id}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested configuration.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Configuration's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/actions">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all deployed actions.
+
+<p>Returns a list of all deployed actions.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/packages">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all deployed packages.
+
+<p>Returns a list of all deployed packages.</p>]]>
+                </wadl:doc>
+                <wadl:response/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing a package.
+
+<p>Imports a package. The package binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/content/packages/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.package");
+parts.put("file", Arrays.asList(r));
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="file" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/workflows">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for listing all deployed workflows.
+
+<p>Returns a list of all deployed workflows.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/inventory/**">
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for hierarchical browsing of system and plug-in inventories.
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and a list containing the child objects
+that are located at this hierarchy level.</p>
+<p>The user can navigate hierarchy using 'up'/'down' links in the result. If there is no 'up' link,
+you are at the root level. If there is no 'down' link, you have reached a leaf object which is not a parent
+for other objects in this hierarchy.</p>
+
+<p>Depending on the level where you invoke the service, the results should be interpreted differently.
+<ul>
+<li>GET .../api/inventory/ - returns links to registered system/plug-in inventories.</li>
+<li>GET .../api/inventory/{inventoryname} - if invoked for a plug-in inventory, returns plug-in root object.
+If invoked for the system inventory, returns links to supported system types.</li>
+</ul>
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/packages/{packageName}">
+            <wadl:param name="packageName" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting/downloading a package.
+
+<p>Exports a package by its name. If the request is successful, the package binary content is available as attachment with MIME
+type application/zip (that is, a normal ZIP file) with a default file name {packagename}.package</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to the local file system.</p>
+<p>The exported package has the same internal format as the packages exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a package.
+
+<p>Deletes a package with a given name.</p>
+<p>Takes 3 options for deleting a package:</p>
+<ul>
+<li>deletePackage - deletes the package without the content</li>
+<li>deletePackageWithContent - deletes the package along with the content. If other packages share elements with this package, they will be deleted</li>
+<li>deletePackageKeepingShared - deletes the package along with the content. If other packages share elements with this package, the elements will not be removed.</li>
+</ul>
+<p>If no option parameter is provided, the default one is used: deletePackage</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="option" style="query"/>
+                </wadl:request>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint to access package's details.
+
+<p>Returns details of the package, with list all contained workflows and actions.</p>
+The URL of the package is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/packages/<span class="apiparam">{packageName}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">packageName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the details of the requested package.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Return XML/Json representation of the package]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:package-details"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/packages/{packageName}">
+            <wadl:param name="packageName" style="template">
+                <wadl:doc>
+                    <![CDATA[The name of the package]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint to access package's details.
+
+<p>Returns details of the package, with list all contained workflows and actions.</p>
+The URL of the package is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/packages/<span class="apiparam">{packageName}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">packageName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the details of the requested package.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Return XML/Json representation of the package]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:package-details"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/packages/{packageName}">
+            <wadl:param name="packageName" style="template">
+                <wadl:doc>
+                    <![CDATA[The name of the package]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint to access package's details.
+
+<p>Returns details of the package, with list all contained workflows and actions.</p>
+The URL of the package is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/packages/<span class="apiparam">{packageName}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">packageName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the details of the requested package.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Return XML/Json representation of the package]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/resources/{id}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the resource to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a resource.
+The returned definition contains base data for the resource.
+<p>To retrieve the definition of a resource, make an HTTP GET request at the URL of the resource.
+Pass the resource ID as a path variable.
+</p>
+The URL of the resource is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/<span class="apiparam">{id}</span>/</pre>
+Use appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested resource.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Resource definition]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:resource"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting a resource.
+
+<p>Exports a resource by its ID. If the request is successful, the resource binary content is
+available in the body of response message</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to local file system.</p>
+<p>The exported resource has the same internal format as the resource exported using Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a resource.
+
+<p>Deletes a resource with a given ID.</p>
+<p>If the resource is referenced by some workflow, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/resources/{id}">
+            <wadl:param name="id" style="template">
+                <wadl:doc>
+                    <![CDATA[The ID of the resource to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a resource.
+The returned definition contains base data for the resource.
+<p>To retrieve the definition of a resource, make an HTTP GET request at the URL of the resource.
+Pass the resource ID as a path variable.
+</p>
+The URL of the resource is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/<span class="apiparam">{id}</span>/</pre>
+Use appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested resource.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Resource definition]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:resource"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/resources/{id}">
+            <wadl:param name="id" style="template">
+                <wadl:doc>
+                    <![CDATA[The ID of the resource to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a resource.
+The returned definition contains base data for the resource.
+<p>To retrieve the definition of a resource, make an HTTP GET request at the URL of the resource.
+Pass the resource ID as a path variable.
+</p>
+The URL of the resource is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/resources/<span class="apiparam">{id}</span>/</pre>
+Use appropriate value in place of <span class="apiparam">id</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested resource.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the Resource definition]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/tasks/{id}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the requested task]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Endpoint for retrieving a single task.
+<p>The returned task data contains information about the user who scheduled the task, schedule start date,
+recurrence cycle, task state, task name, the workflow which was scheduled.
+</p>
+<p>To retrieve a task, make an HTTP GET request at the URL of the task.
+Pass the task ID as a path variable.
+</p>
+The URL of the task is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/task/<span class="apiparam">{taskId}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">taskId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the data of the requested task.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the task's data.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Endpoint for updating a task's data.
+<p>Use this endpoint to update an already scheduled task. If the scheduling date is changed, the original task is rescheduled.</p>
+<p>It is not allowed to update the scheduled workflow. To update the scheduled workflow, remove the current task and schedule a new one.</p>
+To update a task, make an HTTP POST request at the task's URL.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/tasks/<span class="apiparam">{taskId}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">taskId</span><br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">200 OK</span> status code and returns updated task's data.
+<p>Input parameter values are validated. If there are any validation errors an HTTP <span class="apiparam">400 Bad Request</span> status code appears.
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Task data to update]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the updated task's data.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Endpoint for deleting a scheduled task.
+<p>Use this endpoint to delete a scheduled task.</p>
+To delete a task, make an HTTP DELETE request at the task's URL.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/tasks/<span class="apiparam">{taskId}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">taskId</span><br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">204 No Content</span> status code.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{id}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a workflow.
+The returned definition contains base data for the workflow, as well the input and output parameter definitions.
+It also has links to the workflow presentation and workflow category in which this workflow is located.
+<p>To retrieve the definition of a workflow, make an HTTP GET request at the URL of the workflow.
+Pass the workflow ID as a path variable.
+</p>
+The URL of the workflow is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested workflow.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the workflow definition.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting/downloading a workflow.
+
+<p>Exports a workflow by its ID. If the request is successful, the workflow binary content is available as an attachment with MIME
+type application/zip (that is, a normal ZIP file) with a default file name {workflowname}.workflow</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to local file system.</p>
+<p>The exported workflow has the same internal format as the workflows exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}">
+            <wadl:param name="workflowId" style="path"/>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a workflow.
+
+<p>Deletes a workflow with a given ID.</p>
+<p>If the workflow is referenced by some other workflows, or is running, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                    <wadl:param name="forceDeleteLocked" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/actions/{categoryName}/{actionName}">
+            <wadl:param name="categoryName" style="path">
+                <wadl:doc>
+                    <![CDATA[The containing category name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="actionName" style="path">
+                <wadl:doc>
+                    <![CDATA[The requested action name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action by categoryName and actionName.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the category name and action name as path variables.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{categoryName}</span>/<span class="apiparam">{actionName}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">categoryName</span> and <span class="apiparam">actionName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:action"/>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/xml/actions/{categoryName}/{actionName}">
+            <wadl:param name="categoryName" style="template">
+                <wadl:doc>
+                    <![CDATA[The containing category name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="actionName" style="template">
+                <wadl:doc>
+                    <![CDATA[The requested action name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action by categoryName and actionName.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the category name and action name as path variables.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{categoryName}</span>/<span class="apiparam">{actionName}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">categoryName</span> and <span class="apiparam">actionName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation xmlns:vco="http://www.vmware.com/vco" mediaType="application/xml"
+                                         element="vco:action"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/json/actions/{categoryName}/{actionName}">
+            <wadl:param name="categoryName" style="template">
+                <wadl:doc>
+                    <![CDATA[The containing category name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="actionName" style="template">
+                <wadl:doc>
+                    <![CDATA[The requested action name]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of an action by categoryName and actionName.
+The returned definition contains base data for the action, as well the input parameter's definitions and the output type.
+<p>To retrieve the definition of an action, make an HTTP GET request at the URL of the action.
+Pass the category name and action name as path variables.
+</p>
+The URL of the action is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/actions/<span class="apiparam">{categoryName}</span>/<span class="apiparam">{actionName}</span>/</pre>
+Use appropriate values in place of <span class="apiparam">categoryName</span> and <span class="apiparam">actionName</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the definition of the requested action.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the action's definition.]]>
+                    </wadl:doc>
+                    <wadl:representation mediaType="application/json"/>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/actions/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Action ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves action permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/actions/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns permissions list  for provided workflow ID.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for an action with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for an action with given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/metadata">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving the metadata of a vCO plug-in.
+
+<p>Plug-in metadata contains information about the types that this plug-in defines and their attributes or relations.</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the requested metadata.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/{type}">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:param name="type" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving the list of objects for a specific type.
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the requested list of objects.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/categories/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Category ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves category permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/categories/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns permissions list for the provided category ID.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for a category with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for a category with a given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/configurations/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Configuration ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves configuration permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/configurations/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a permissions list for the provided configuration.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for configuration with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for a configuration with given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/actions/{actionName}">
+            <wadl:param name="actionName" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting an action.
+
+<p>Export an action by its fully qualified name (category name + action name). If the request is successful, the action binary content is
+available as attachment with MIME type application/zip (that is, a normal ZIP file) with a default
+file name {actionname}.action</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to the local file system.</p>
+<p>The exported action has the same internal format as the actions exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting an action.
+
+<p>Deletes an action with a given fully qualified name.</p>
+<p>If the action is referenced by some workflows, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/actions/{categoryName}">
+            <wadl:param name="categoryName" style="path"/>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing an action.
+
+<p>Imports an action in a given category. The action binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/content/packages/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.action");
+parts.put("file", Arrays.asList(r));
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="file" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/packages/{packageName}">
+            <wadl:param name="packageName" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting a package.
+
+<p>Exports a package by its name. If the request is successful, the package binary content is available as an attachment with MIME
+type application/zip (that is, a normal ZIP file) with a default file name {packagename}.package</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to the local file system.</p>
+<p>The exported package has the same internal format as the packages exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a package.
+
+<p>Deletes a package with a given name.</p>
+<p>If a package has some content (workflows, actions or other elements put inside it), it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/workflows/{categoryId}">
+            <wadl:param name="categoryId" style="path"/>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for importing a workflow.
+
+<p>Imports a workflow in a given category. The workflow binary content should be available as multi-part content (see RFC-2387 for details).</p>
+<p>Details of working with multi-part resources depend on the used client's HTTP/REST library. For example, in Spring
+it will look like:</p>
+<pre>Sample client code:
+-------------------
+String url = "http://127.0.0.1:8280/api/content/packages/";
+MultiValueMap<String, Resource> parts = new LinkedMultiValueMap<String, Resource>();
+Resource r = new FileSystemResource("D:/path/to/some.workflow");
+parts.put("file", Arrays.asList(r));
+new RestTemplate().postForLocation(url, parts);
+-------------------
+</pre>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="file" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/content/workflows/{workflowId}">
+            <wadl:param name="workflowId" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for exporting a workflow.
+
+<p>Exports a package by its ID. If the request is successful, the package binary content is available as an attachment with MIME
+type application/zip (that is, a normal ZIP file) with a default file name {workflowname}.workflow</p>
+<p>It is up to the client application to properly fetch and process this attachment, for example by saving it
+to the local file system.</p>
+<p>The exported package has the same internal format as the workflows exported by using the Orchestrator client.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for deleting a workflow.
+
+<p>Deletes a workflow with a given ID.</p>
+<p>If the workflow is referenced by some other workflows, or is running, it is considered to be 'in use'
+and the delete operation will fail, unless the 'force' option is provided.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="force" style="query"/>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/packages/{packageName}/permissions">
+            <wadl:param name="packageName" style="path">
+                <wadl:doc>
+                    <![CDATA[The name of the package]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves package permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/packages/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns permissions list  for provided package.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for a package with a given name.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Set permissions for package with given name.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/resources/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Resource ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves resource permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/resources/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns permissions list for the provided resource.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for resource with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for a resource with a given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/tasks/{id}/executions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the task to retrieve executions for]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Endpoint for retrieving all task executions until the current date.
+<p>To retrieve the list of all executions of a task, make an HTTP GET request at the task's executions URL.
+The list contains all task executions until the current date. If the task is a <span class="apiparam">one-time</span>, only one execution is returned.
+If the task has a <span class="apiparam">recurrence pattern</span>, then multiple executions can be returned.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/tasks{taskId}</span>/executions/</pre>
+Use appropriate values in place of <span class="apiparam">taskId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of all task executions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list with all executions for a requested task.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/tasks/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Task ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves task permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/tasks/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a permissions list for a provided task.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for a task with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for a task with a given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{id}/icon">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Access workflow's icon.
+<p> The icon's binary data is returned and response Content-type is set to correct media type,
+for example <span class="apiparam">Content-Type:image/png</span>
+</p>
+The URL of the workflow's icon is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}/icon</span>/</pre>
+Use appropriate value in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the binary data of the requested workflow's icon.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{id}/permissions">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Workflow ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieve workflow permissions.
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;api/workflows/A4808080808080808080808080808080E680808001323264876359ce882292c2a/permissions/</pre>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the list of permissions.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Return a permissions list for a provided workflow ID.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes all permissions for a workflow with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Sets permissions for a workflow with a given ID.
+<p>Access rights : 'r' - VIEW,  'x' - EXECUTE, 'i' - INSPECT,  'c' - EDIT, 'a' - ADMIN </p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[Permissions to set]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The id of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves all workflow runs for a given workflow.
+<p>Retrieves all workflow runs for a given workflow and filters by current user's permissions.</p>
+<p>Additional filtering of the result can be applied by using query parameters. For details about supported
+filtering parameter, see <a href="rest.html#resultfilters">Result list filters/transformations</a>
+<p>To retrieve the list of all runs of a workflow, make an HTTP GET request at the URL of the workflow's runs/executions.
+Pass the workflow ID as a path variable.
+</p>
+The URL of the workflow's runs is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/</pre>
+Use appropriate value in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns a list of all runs for the requested workflow.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Creates a new instance of a workflow's run, by using the passed parameters.
+<p>The workflow run is an asynchronous, so the call does not return a response body.
+To start a new run of the workflow, make an HTTP POST request at the URL workflow's run.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">202 Accepted</span> status code and <span class="apiparam">Location</span>
+of the newly created workflow run.
+<p>Input parameter values are validated. If there are any validation errors an HTTP <span class="apiparam">400 Bad Request</span> status code appears.
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The ExecutionContext with initial parameters values, if any]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/presentation">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation you want to get]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a workflow presentation.
+<p>To retrieve the definition of a workflow presentation, make an HTTP GET request at the URL of the presentation.
+Pass the workflow ID as a path variable.
+</p>
+The URL of the presentation is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/presentation/</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span>.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns the definition of the requested workflow presentation.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the definition of the Presentation for the specified workflow.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/tasks">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves all scheduled tasks for a requested workflow.
+<p>To retrieve the list of all scheduled tasks of a workflow, make an HTTP GET request at the URL of the workflow's tasks.
+Pass the workflow ID as a path variable.
+</p>
+The URL of the workflow's tasks is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}/tasks</span>/</pre>
+Use an appropriate value in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns a list of all scheduled tasks for the requested workflow.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/actions/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Action ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and he access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/metadata/icon">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving the icon image for the specified module.
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the requested icon image as a
+downloadable attachment that has an 'image/png' MIME type.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/{type}/{id}">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:param name="type" style="path"/>
+            <wadl:param name="id" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving an element by its type and ID.
+
+<p>All vCO objects can be accessed or identified by their unique combination of namespace, type and ID.</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the response body contains the retrieved element.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="keys" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/categories/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Category ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and he access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/configurations/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Configuration ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and he access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/packages/{packageName}/permissions/{ruleId}">
+            <wadl:param name="packageName" style="path">
+                <wadl:doc>
+                    <![CDATA[The name of the package]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and he access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for single permission rule with given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/resources/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Resource ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and the access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/tasks/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Task ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and the access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{id}/permissions/{ruleId}">
+            <wadl:param name="id" style="path">
+                <wadl:doc>
+                    <![CDATA[Workflow ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="ruleId" style="path">
+                <wadl:doc>
+                    <![CDATA[Rule ID]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves details for a specific permission rule.
+Each rule contains information about the principal and the access rights assigned.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns details for a permission rule.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Updates principal or access rights for a single permission rule with a given ID.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[New permission data]]>
+                    </wadl:doc>
+                </wadl:request>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the requested workflow run]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a specific workflow run for a given workflow.
+<p>Retrieves a workflow run for a given workflow.</p>
+The result contains:
+<ul>
+<li> state of the run: running,completed,waiting,failed
+<li> input and output parameters, if any
+<li> start and end date
+<li> who started the workflow
+<li> if the workflow is failed, the error message
+</ul>
+The URL of the workflow's run is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}</span>/</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns execution details for the requested workflow run.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns workflow run details.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Deletes a specific workflow run.
+The URL to delete a workflow run is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}</span>/</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">204 No Content</span> status code and the workflow run is deleted.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/presentation/instances">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation you want to start]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Creates a new instance of the presentation of a workflow, by using the passed
+parameters.
+To create a new instance of a workflow presentation, make an HTTP GET request at the URL that contains the
+instances of the workflow presentation.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/presentation/instances/</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span>.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the requested workflow presentation.
+<p>Presentation's fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with initial parameter values, if any]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a new instance of the presentation of the workflow you specified.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of the presentations for a workflow that you specify.
+<p>To retrieve the list of workflow presentations, make an HTTP GET request at the workflow presentations list URL.
+Pass the workflow ID as a path variable.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/presentation/instances</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span>.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns the list of the requested workflow presentations.
+<p>The returned list contains all of the currently running workflow presentation instances, and all completed instances based on the data from
+the workflow executions.
+</p>
+<p class="apinote">
+If the user has admin rights, all presentation instances for all users are returned.
+</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all workflow presentations for a specific workflow and information about the logged in user.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/{parentType}/{parentId}/{relationName}">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:param name="parentType" style="path"/>
+            <wadl:param name="parentId" style="path"/>
+            <wadl:param name="relationName" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving a list of related elements for a specific object.
+
+<p>Every vCO plug-in can define relations between its types. For example, hierarchy structures
+can be defined as 'CHILDREN' relations between parent and children types.</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and a list containing the child objects that are
+accessible through a given relation, if any.</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:param name="maxResult" style="query"/>
+                    <wadl:param name="startIndex" style="query"/>
+                    <wadl:param name="queryCount" style="query"/>
+                    <wadl:param name="keys" style="query"/>
+                    <wadl:param name="conditions" style="query"/>
+                    <wadl:param name="sortOrders" style="query"/>
+                </wadl:request>
+                <wadl:response/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/catalog/{namespace}/{type}/metadata/icon">
+            <wadl:param name="namespace" style="path"/>
+            <wadl:param name="type" style="path"/>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[A REST endpoint for retrieving the icon image for a specified type.
+
+<p>All types that a vCO plug-in defines, and the system types that the vCO server defines, have default icon images.</p>
+
+<p>If the request is successful, the API responds with an HTTP 200 OK status code and the requested icon image as a
+downloadable attachment that has an 'image/png' MIME type.</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}/interaction">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation instance you want to get]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow run instance you want to get]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves user interaction details for a specific workflow run.
+<p>If a workflow run with ID: <span class="apiparam">executionId</span> has a user interaction request,
+the workflow run is suspended until a user answers the interaction request.
+</p>
+This API call returns the user interaction parameter, which has to be filled to answer it.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">200 OK</span> status code and returns the details of the requested workflow run user interaction.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the requested workflow's run user interaction.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Answers a user interaction for a specific workflow run.
+<p>If a workflow run with ID: <span class="apiparam">executionId</span> has a user interaction request,
+the workflow run is suspended until a user answers the interaction request.
+</p>
+To answer a user interaction, use this API call with appropriate parameters.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">204 No Content</span> status code and the workflow is resumed.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}/logs">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of a workflow run for which to access the event logs]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves workflow run event logs.
+<p>Provides information about each individual event that occurs when the workflow runs. This information includes a
+description of the event, the user who triggered it, the type and origin of the event, and the time and date when it
+occurred.
+</p>
+The URL of the workflow's event logs is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}/executions/{executionId}/logs</span>/</pre>
+Use appropriate value in place of <span class="apiparam">workflowId</span><br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">200 OK</span> status code and returns the binary data of the requested workflow's icon.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns list of all events that occur when the workflow runs.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}/state">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow to access]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the requested workflow run]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the current state for a requested workflow run.
+The URL of the workflow run state is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}</span>/state</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP 200 OK status code and returns the state of the requested workflow run.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the <span class="apiparam">state</span> of the workflow run.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Cancels a specific workflow run.
+The URL to cancel a workflow run is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}</span>/state</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}<br>
+If the request is successful, the API responds with an HTTP <span class="apiparam">204 No Content</span> status code.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/presentation/instances/{executionId}">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation instance you want to get]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow presentation instance you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a specific workflow presentation instance.
+<p>Presentation instances are removed after the workflow starts. If the presentation instance under
+requested <span class="apiparam">executionId</span> does not exists, a new presentation instance is created by using the parameters
+from the workflow execution with the same ID. If the workflow execution with IS: <span class="apiparam">executionId</span> cannot be found, and
+the presentation instance with same ID does not exist, an error with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/presentation/instances/{<span class="apiparam">executionId</span>}</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the requested workflow presentation.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns requested workflow presentation instance or execution.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Update a specific workflow presentation instance.
+<p>Presentation fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>
+<p> If the presentation instance for the requested workflow with <span class="apiparam">executionId</span> does not exists, an error
+with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/presentation/instances/{<span class="apiparam">executionId</span>}</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the updated workflow presentation.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with parameter values, if any.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns an updated workflow presentation instance.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Update a specific workflow presentation instance.
+<p>Presentation fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>
+<p> If the presentation instance for the requested workflow with <span class="apiparam">executionId</span> does not exists, an error
+with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/presentation/instances/{<span class="apiparam">executionId</span>}</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the updated workflow presentation.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with parameter values, if any.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns an updated workflow presentation instance.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Cancels the execution of a workflow presentation instance.
+<p>This API call cancels only the workflow presentation execution. To cancel the workflow execution, use APIs under
+/api/workflows/{<span class="apiparam">workflowId</span>}/instances.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/presentation/instances/{<span class="apiparam">executionId</span>}</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>} and {<span class="apiparam">executionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}/interaction/presentation">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow execution instances you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves the definition of a user interaction presentation.
+<p>To retrieve the definition of a user interaction presentation, make an HTTP GET request at the URL of the presentation.
+Pass the workflow and execution IDs as a path variable.
+</p>
+The URL of the user interaction presentation is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span> and <span class="apiparam">executionId</span>.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code, and returns the definition of the requested user interaction presentation.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns the definition of the Presentation for the specified workflow user interaction.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource path="/workflows/{workflowId}/executions/{executionId}/interaction/presentation/instances">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose user interaction presentation you want to start.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow execution instances you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Creates a new instance of a workflow user interaction presentation by using the passed
+parameters.
+To create a new instance of a workflow user interaction presentation, make an HTTP GET request at the URL that contains the
+instances of that workflow user interaction presentation.
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances/</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span> and <span class="apiparam">executionId</span>.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the requested workflow user interaction presentation.
+<p>Presentation fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with initial parameters values, if any.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a new instance of the presentation for the specified workflow.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a list of all user interaction presentations for a specified workflow execution.
+<p>To retrieve the list of the workflow execution user interaction presentations, make an HTTP GET request at the workflow execution
+user interaction presentations list URL.
+Pass the workflow and execution IDs as a path variables.
+</p>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/<span class="apiparam">{workflowId}</span>/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances</pre>
+Use appropriate values in place of <span class="apiparam">workflowId</span> and <span class="apiparam">executionId</span><br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns the list of the requested workflow execution
+user interaction presentations.
+<p>The returned list contains all currently running workflow execution
+user interaction presentation instances.
+</p>
+<p class="apinote">
+If the user has admin rights, all presentation instances for all users are returned.
+</p>]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns a list of all workflow presentations for a given workflow and information about the logged in user. If there are
+no active user interactions for the requested workflow execution, an empty list is returned.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+        </wadl:resource>
+        <wadl:resource
+                path="/workflows/{workflowId}/executions/{executionId}/interaction/presentation/instances/{presentationExecutionId}">
+            <wadl:param name="workflowId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow whose presentation instance you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="executionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow execution instance you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:param name="presentationExecutionId" style="path">
+                <wadl:doc>
+                    <![CDATA[The ID of the workflow esecution user interaction presentation instance you want to get.]]>
+                </wadl:doc>
+            </wadl:param>
+            <wadl:method name="GET">
+                <wadl:doc>
+                    <![CDATA[Retrieves a specific workflow execution user interaction presentation instance.
+<p>If a workflow execution with ID: <span class="apiparam">presentationExecutionId</span> cannot be found, and
+a presentation instance with same ID does not exist, an error with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances/<span class="apiparam">{presentationExecutionId}</span></pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>} and {<span class="apiparam">presentationExecutionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the requested workflow presentation.]]>
+                </wadl:doc>
+                <wadl:request/>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns requested workflow presentation instance or execution.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="POST">
+                <wadl:doc>
+                    <![CDATA[Update a specific workflow execution user interaction presentation instance.
+<p>Presentation fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>
+<p>If the presentation instance for the requested workflow execution with <span class="apiparam">presentationExecutionId</span> does not exists, an error
+with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances/<span class="apiparam">{presentationExecutionId}</span></pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>} and {<span class="apiparam">presentationExecutionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the updated workflow execution user interaction presentation.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with parameters values, if any.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns an updated workflow execution user interaction presentation instance.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="PUT">
+                <wadl:doc>
+                    <![CDATA[Update a specific workflow execution user interaction presentation instance.
+<p>Presentation fields are populated with input parameter values and are validated. If there are any
+validation errors, they are collected and attached to each field. The presentation is marked as invalid.
+</p>
+<p>If the presentation instance for the requested workflow execution with <span class="apiparam">presentationExecutionId</span> does not exists, an error
+with status code <span class="apiparam">404 Not Found</span> appears.
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances/<span class="apiparam">{presentationExecutionId}</span></pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>} and {<span class="apiparam">presentationExecutionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code and returns an instance of the updated workflow execution user interaction presentation.]]>
+                </wadl:doc>
+                <wadl:request>
+                    <wadl:doc>
+                        <![CDATA[The execution context with parameters values, if any.]]>
+                    </wadl:doc>
+                </wadl:request>
+                <wadl:response>
+                    <wadl:doc>
+                        <![CDATA[Returns an updated workflow execution user interaction presentation instance.]]>
+                    </wadl:doc>
+                </wadl:response>
+            </wadl:method>
+            <wadl:method name="DELETE">
+                <wadl:doc>
+                    <![CDATA[Cancels a workflow execution user interaction presentation instance.
+<p> This API call cancels only the workflow execution user interaction presentation. To cancel the workflow execution use APIs under
+/api/workflows/{<span class="apiparam">workflowId</span>}/instances
+</p>
+<br>
+The URL is in the following format:
+<pre>http://&lt;host&gt;:&lt;port&gt;/api/workflows/{<span class="apiparam">workflowId</span>}/executions/<span class="apiparam">{executionId}}</span>/interaction/presentation/instances/<span class="apiparam">{presentationExecutionId}</pre>
+Use appropriate values in place of {<span class="apiparam">workflowId</span>}, {<span class="apiparam">executionId</span>} and {<span class="apiparam">presentationExecutionId</span>}.<br>
+If the request is successful, the API responds with an <span class="apiparam">HTTP 200 OK</span> status code.]]>
+                </wadl:doc>
+                <wadl:request/>
+            </wadl:method>
+        </wadl:resource>
+    </wadl:resources>
+</wadl:application>
